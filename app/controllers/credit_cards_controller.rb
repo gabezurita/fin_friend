@@ -1,7 +1,7 @@
 class CreditCardsController < ApplicationController
   def new
     @user = User.find(params[:user_id])
-    @interests = Interest.all
+    @credit_card = CreditCard.all
   end
 
 
@@ -14,16 +14,16 @@ class CreditCardsController < ApplicationController
 
   def new
     @user = User.find(params[:user_id])
-    @interests = Interest.all
+    @credit_card = CreditCard.all
   end
 
   def create
     @user = User.find(params[:user_id])
-    @interests = Interest.all
+    @credit_card = CreditCard.all
     if @User.save
       redirect_to(@user)
     else
-      @errors = @interest.errors.full_messages
+      @errors = @credit_card.errors.full_messages
       render 'new'
     end
   end
