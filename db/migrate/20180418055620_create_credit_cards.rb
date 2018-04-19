@@ -7,11 +7,8 @@ class CreateCreditCards < ActiveRecord::Migration[5.1]
       t.float :limit, default: 1000.00
       t.float :balance, default: 0
       t.float :accrued_interest, default: 0
-      t.float :payments, default: 0
-      t.float :charges, default: 0
-      t.datetime :created
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
