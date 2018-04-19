@@ -5,5 +5,6 @@ class UserCreditCards < ActiveRecord::Migration[5.1]
       t.integer :credit_card_id
 
       t.timestamps null: false
+    end
   end
 end
