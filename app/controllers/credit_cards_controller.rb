@@ -20,7 +20,7 @@ class CreditCardsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @credit_card = CreditCard.all
-    if @User.save
+    if @user.save
       redirect_to(@user)
     else
       @errors = @credit_card.errors.full_messages
