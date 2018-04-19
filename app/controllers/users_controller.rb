@@ -1,17 +1,18 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
-    @credit_card = CreditCard.all
+    @credit_card = CreditCard.new
   end
 
   def create
     @user = User.new(user_params)
-    @credit_card = CreditCard.all
+    @credit_card = CreditCard.new
 
     # store all emails in lowercase to avoid duplicates and case-sensitive login errors:
     @user.email.downcase!
 
     if @user.save
+      @credit_card.save
       # If user saves in the db successfully:
       flash[:notice] = "Account created successfully!"
       redirect_to root_path
