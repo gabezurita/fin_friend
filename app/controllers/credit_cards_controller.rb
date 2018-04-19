@@ -30,6 +30,6 @@ class CreditCardsController < ApplicationController
 
   private
   def credit_card_params
-    params.require(:credit_card).permit(:user, :text)
+    params.require(:user).permit(:user_credit_cards)
   end
 end
