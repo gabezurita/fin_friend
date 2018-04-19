@@ -5,10 +5,10 @@ class CreateCreditCards < ActiveRecord::Migration[5.1]
       t.text :description
       t.decimal :apr
       t.decimal :limit
-      t.integer :balance
-      t.integer :accrued_interest
-      t.integer :payments
-      t.integer :charges
+      t.decimal :balance
+      t.decimal :accrued_interest
+      t.decimal :payments
+      t.decimal :charges
       t.datetime :created
 
       t.timestamps
