@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'pages/secret'
 
+	resources :credit_cards
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # Add a root route if you don't have one...
 	# We can use users#new for now, or replace this with the controller and action you want to be the site root:
