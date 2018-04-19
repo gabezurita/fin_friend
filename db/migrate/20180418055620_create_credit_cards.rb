@@ -4,7 +4,7 @@ class CreateCreditCards < ActiveRecord::Migration[5.1]
       t.string :name
       t.text :description
       t.decimal :apr
-      t.integer :limit
+      t.decimal :limit
       t.integer :balance
       t.integer :accrued_interest
       t.integer :payments
