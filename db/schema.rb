@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 20180419005550) do
   enable_extension "plpgsql"
 
   create_table "credit_cards", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.decimal "apr", default: "19.99"
-    t.decimal "limit", default: "9001.0"
-    t.decimal "balance", default: "0.0"
-    t.decimal "accrued_interest", default: "0.0"
-    t.decimal "payments", default: "0.0"
-    t.decimal "charges", default: "0.0"
+    t.string "name", default: "FinFriend"
+    t.text "description", default: "With 3 percent cash back on all purchases, this is the best single credit card there is!"
+    t.decimal "apr", precision: 10, scale: 2, default: "0.35"
+    t.decimal "limit", precision: 10, scale: 2, default: "1000.0"
+    t.decimal "balance", precision: 10, scale: 2, default: "0.0"
+    t.decimal "accrued_interest", precision: 10, scale: 2, default: "0.0"
+    t.decimal "payments", precision: 10, scale: 2, default: "0.0"
+    t.decimal "charges", precision: 10, scale: 2, default: "0.0"
     t.datetime "created"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
