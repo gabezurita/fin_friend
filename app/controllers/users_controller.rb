@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
     if @user.save
       @credit_card.save
+      UserCreditCard.create!(credit_card_id: @credit_card.id, user_id: @user.id)
       # If user saves in the db successfully:
       flash[:notice] = "Account created successfully!"
       redirect_to root_path
