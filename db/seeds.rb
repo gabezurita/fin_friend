@@ -11,3 +11,9 @@ User.create!(name: 'gabo', email: 'gab@gmail.com', password: 'password', passwor
 CreditCard.create!(name: "FinPalicious", description: "With 3 percent cash back on all purchases, this is the best single credit card there is!")
 
 UserCreditCard.create!(credit_card_id: 1, user_id: 1)
+
+User.create!(name: 'abby', email: 'abby@gmail.com', password: 'password', password_confirmation: 'password')
+
+CreditCard.create!(name: "FinPalicious", description: "With 3 percent cash back on all purchases, this is the best single credit card there is!", balance: 500)
+
+UserCreditCard.create!(credit_card_id: 2, user_id: 2)

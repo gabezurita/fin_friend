@@ -42,6 +42,9 @@ GEM
     bcrypt (3.1.11)
     bindex (0.5.0)
     builder (3.2.3)
+    business_time (0.9.3)
+      activesupport (>= 3.2.0)
+      tzinfo
     byebug (10.0.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -159,6 +162,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  business_time
   byebug
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
