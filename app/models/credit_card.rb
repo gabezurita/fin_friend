@@ -46,4 +46,14 @@ class CreditCard < ApplicationRecord
     @balance += total_accrued_interest
     @balance.save!
   end
+
+  def pay_balance(paid_amount)
+    @balance -= paid_amount
+    @balance.save!
+  end
+
+  def charge_card(charged_amount)
+    @balance += charged_amount
+    @balance.save!
+  end
 end
