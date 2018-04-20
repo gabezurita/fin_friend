@@ -6,17 +6,32 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
   </head>
 
-  <body>
-
+<body>
+  <h5 class="navbar-fixed nav-wrapper center">
     <% if current_user %>
       <!-- current_user will return true if a user is logged in -->
-      <%= "Logged in as #{current_user.email}" %> | <%= link_to 'Home', users_show_path %> | <%= link_to 'Log Out', logout_path, method: :delete %>
+      <a href="/users/show" class="brand-logo center">FinPal</a> | <%= link_to 'Log Out', logout_path, method: :delete %>
     <% else %>
       <!-- not logged in -->
-      <%= link_to 'Home', root_path %> | <%= link_to 'Log In', login_path %> or <%= link_to 'Register', new_user_path %>
+      <a href="/" class="brand-logo center">FinPal</a> | <%= link_to 'Log In', login_path %> or <%= link_to 'Register', new_user_path %>
     <% end %>
+  </h5>
     <hr>
 
     <% if notice %>
