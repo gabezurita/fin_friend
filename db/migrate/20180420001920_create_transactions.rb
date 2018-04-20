@@ -5,7 +5,7 @@ class CreateTransactions < ActiveRecord::Migration[5.1]
       t.integer :credit_card_id
       t.float :amount
 
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end
