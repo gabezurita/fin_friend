@@ -16,12 +16,17 @@ class UsersController < ApplicationController
       UserCreditCard.create!(credit_card_id: @credit_card.id, user_id: @user.id)
       # If user saves in the db successfully:
       flash[:notice] = "Account created successfully!"
-      redirect_to root_path
+      session[:user_id] = @user.id
+      redirect_to users_show_path
     else
       # If user fails model validation - probably a bad password or duplicate email:
       flash.now.alert = "Oops, couldn't create account. Please make sure you are using a valid email and password and try again."
       render :new
     end
+  end
+
+  def show
+    @user = User.find(current_user.id)
   end
 
 private

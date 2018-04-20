@@ -1,24 +1,30 @@
-<h1>Register to FinPal!</h1>
+<div class="container">
+  <h1>Register to FinFriend!</h1>
 
-<%= form_for @user do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name, autofocus: true %>
-  </div>
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+  <div class="row">
+    <div class="col s12"><h4>Get the credit you need!</h4></div>
   </div>
 
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div>
-    <%= f.submit "Register!" %>
-  </div>
-<% end %>
+  <%= form_for @user do |f| %>
+    <div class="input-field col s12">
+      <%= f.label :name %>
+      <%= f.text_field :name, autofocus: true %>
+    </div>
+    <div class="input-field col s12">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+
+    <div class="input-field col s12">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <div class="input-field col s12">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <div>
+      <%= render partial: '/submit_button' %>
+    </div>
+  <% end %>
+</div>

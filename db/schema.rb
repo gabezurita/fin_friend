@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20180420001920) do
   create_table "credit_cards", force: :cascade do |t|
     t.string "name", default: "FinFriend"
     t.text "description", default: "With 3 percent cash back on all purchases, this is the best single credit card there is!"
+    t.bigint "card_number"
     t.float "apr", default: 0.35
     t.float "limit", default: 1000.0
     t.float "accrued_interest", default: 0.0

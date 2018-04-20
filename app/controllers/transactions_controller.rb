@@ -1,30 +1,28 @@
 class TransactionsController < ApplicationController
   def new
-    @user = User.find(params[:user_id])
-    @credit_card = CreditCard.find(params[:user_id])
-    @transaction = Transaction.new(transaction_params)
+    @user = User.find(current_user.id)
+    @credit_card = CreditCard.find(current_user.credit_cards.first.id)
+    @transaction = Transaction.new
+  end
+
+  def show
+    @user = User.find(current_user.id)
   end
 
   def create
-    @transaction = Transaction.new(transaction_params)
-    @user = User.find(params[:user_id])
-    @credit_card = CreditCard.find(params[:credit_card_id])
+    @user = User.find(current_user.credit_cards.first.id)
+    @credit_card = CreditCard.find(current_user.credit_cards.first.id)
+    @transaction = Transaction.new(credit_card_id: @credit_card.id, user_id: @user.id, amount: amount)
 
     if @transaction.save
-      redirect_to(@user)
+      redirect_to users_show_path
 
       # If user saves in the db successfully:
       flash[:notice] = 'Transaction successful!'
-      redirect_to root_path
+      redirect_to users_show_path
     else
       @errors = @transaction.errors.full_messages
       render 'new'
     end
-  end
-
-private
-
-  def transaction_params
-    params.require(:transaction).permit(:amount, :user_id, :credit_card_id)
   end
 end

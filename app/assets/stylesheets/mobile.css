@@ -1,0 +1,139 @@
+html, body {
+  height: 100%;
+  font-family: "Lato", sans-serif !important;
+}
+
+.container {
+  text-align: center;
+}
+
+.welcome-container {
+  text-align: center;
+}
+
+.main-header {
+  background-color: #113E61;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.link-color {
+  color: #113E61;
+}
+
+#search-bar {
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+.itin-row {
+  margin-top: 0px;
+}
+
+.activity-name {
+  font-style: italic;
+}
+
+.user-image {
+  width: 45%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.user-page-hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.99), rgba(0, 0, 0, 0));
+}
+
+.contact-button-div {
+  margin-top: 30px;
+}
+
+.category-title {
+  font-weight: bold;
+}
+
+.user-button {
+  position: relative;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.errors {
+  color: red;
+}
+
+.small-text {
+  font-size: 80%;
+}
+
+.card-panel {
+  border-radius: 20px !important;
+}
+
+.slightly-enlarge-text {
+  font-size: 120%;
+}
+
+.enlarge-text {
+  font-size: 150%;
+}
+
+.sent-message {
+  background-color: #F84300 !important;
+}
+
+.received-message {
+  background-color: #2CBFC5 !important;
+}
+
+.chip {
+  background-color: #FFE177 !important;
+  color: black !important;
+}
+
+.search-results-card {
+  max-width: 245px;
+  max-height: 89px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.all-reviews-card {
+  width: 300px;
+  max-height: 89px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.review-show-paragrah {
+  max-width: 350px;
+}
+
+body {
+   background-color: #e1f5fe !important;
+}
+
+.btn, .btn-large {
+  background-color: white !important;
+  color: #1a237e !important;
+}
+
+#map {
+  height: 300px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+#itin-city {
+  display: none;
+}

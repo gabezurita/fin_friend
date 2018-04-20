@@ -1,0 +1,8 @@
+<div class="user-info container">
+  <h4 class="row"><%= @user.name %></h4>
+  <h4 class="row"><%= @user.email %></h4>
+  <hr>
+  <h4 class="row"><%= "#{@user.credit_cards.first.name} Credit Card" %></h4>
+  <h4 class="row"><%= "Balance: #{@user.credit_cards.first.transaction_balance}" %></h4>
+  <a href="/transactions/new" class="row enlarge"><h4>Make a payment</h4></a>
+</div>
