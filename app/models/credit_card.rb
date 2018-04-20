@@ -44,7 +44,7 @@ class CreditCard < ApplicationRecord
 
   def monthly_balance_update!(current_time = nil)
     current_time ||= Time.now
-    return unless current_time == end_of_month
+    return unless current_time.to_date == end_of_month.to_date
     Transaction.create!(user_id: self.users.first.id, credit_card_id: self.id, amount: self.accrued_interest)
     self.accrued_interest = 0
     self.save!
