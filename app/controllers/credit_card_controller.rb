@@ -5,11 +5,10 @@ class CreditCardsController < ApplicationController
   end
 
   def create
-    @credit_card = CreditCard.new
     @user = User.find(params[:user_id])
-    
+    @credit_card = CreditCard.new
+
     if @credit_card.save
-      @credit_card.save
       redirect_to(@user)
       UserCreditCard.create!(credit_card_id: @credit_card.id, user_id: @user.id)
 
