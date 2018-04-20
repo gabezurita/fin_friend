@@ -37,6 +37,7 @@ class CreditCard < ApplicationRecord
   end
 
   def accumulate_daily_accrued_interest
+    return if self.created_at.to_date == Time.now.to_date
     self.accrued_interest += daily_accrued_interest
     self.save!
   end
