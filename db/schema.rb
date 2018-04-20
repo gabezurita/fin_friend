@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180419005550) do
+ActiveRecord::Schema.define(version: 20180420001920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,13 +18,17 @@ ActiveRecord::Schema.define(version: 20180419005550) do
   create_table "credit_cards", force: :cascade do |t|
     t.string "name", default: "FinFriend"
     t.text "description", default: "With 3 percent cash back on all purchases, this is the best single credit card there is!"
-    t.decimal "apr", precision: 10, scale: 2, default: "0.35"
-    t.decimal "limit", precision: 10, scale: 2, default: "1000.0"
-    t.decimal "balance", precision: 10, scale: 2, default: "0.0"
-    t.decimal "accrued_interest", precision: 10, scale: 2, default: "0.0"
-    t.decimal "payments", precision: 10, scale: 2, default: "0.0"
-    t.decimal "charges", precision: 10, scale: 2, default: "0.0"
-    t.datetime "created"
+    t.float "apr", default: 0.35
+    t.float "limit", default: 1000.0
+    t.float "accrued_interest", default: 0.0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "credit_card_id"
+    t.float "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
