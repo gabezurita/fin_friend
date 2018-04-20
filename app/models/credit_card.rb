@@ -1,5 +1,5 @@
 class CreditCard < ApplicationRecord
-  attr_accessor :total_accrued_interest
+  has_many :transactions
 
   has_many :user_credit_cards
   has_many :users, through: :user_credit_cards
