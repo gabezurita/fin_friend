@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe CreditCard, type: :model do
 
-  let!(:credit_card) { CreditCard.create! }
+  let!(:credit_card) { CreditCard.create!(created_at: "Sun, 1 Apr 2018 07:29:38 UTC +00:00") }
 
   let!(:user) { User.create!(name: 'abby', email: 'abby@gmail.com', password: 'password', password_confirmation: 'password') }
 
@@ -12,5 +12,16 @@ RSpec.describe CreditCard, type: :model do
 
   it 'Has a starting balance of $500' do
     expect(CreditCard.first.transaction_balance).to eq 500
+  end
+
+  it 'Has an ending balance of $514.38 after 30 days of daily accrued interest' do
+    30.times do
+      CreditCard.first.accumulate_daily_accrued_interest
+    end
+
+    travel_to Time.zone.local(2018, 4, 31) do
+      CreditCard.first.monthly_balance_update!
+      expect(CreditCard.first.transaction_balance).to eq 514.38
+    end
   end
 end
