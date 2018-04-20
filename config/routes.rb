@@ -24,4 +24,10 @@ Rails.application.routes.draw do
 
 	# delete action to log out:
 	delete '/logout' => 'sessions#destroy'
+
+  # new transaction:
+	get 'transactions/new'  => 'transactions#new'
+
+	# create (post) transaction:
+	post 'transactions/'    => 'transactions#create'
 end
