@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   # new transaction:
 	get 'transactions/new'  => 'transactions#new'
 
+	post 'transactions/new' => 'transactions#new'
+
 	# create (post) transaction:
 	post 'transactions/'    => 'transactions#create'
 end

@@ -3,11 +3,11 @@
     <div class="col s12"><h4>Make a payment:</h4></div>
   </div>
 
-  <!-- <%= form_for :transaction do |f| %>
+  <%= form_for @transaction do |f| %>
     <div class="input-field col s12">
       <%= f.label :amount %>
-      <%= f.number_field @transaction.amount %>
-    </div> -->
+      <%= f.number_field :amount %>
+    </div>
 
     <div class="input-field col s12">
       <%= render partial: '/submit_button' %>
