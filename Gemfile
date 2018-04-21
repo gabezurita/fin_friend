@@ -56,3 +56,5 @@ gem 'clockwork'
 gem "rspec-rails"
 
 gem "rails_12factor"
+
+gem 'materialize-sass', '~> 1.0.0.beta'
