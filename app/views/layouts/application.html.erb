@@ -31,15 +31,23 @@
   </head>
 
 <body>
-  <h5 class="navbar-fixed nav-wrapper center">
-    <% if current_user %>
-      <!-- current_user will return true if a user is logged in -->
-      <a href="/users/show" class="brand-logo center">FinFriend</a> | <%= link_to 'Log Out', logout_path, method: :delete %>
-    <% else %>
-      <!-- not logged in -->
-      <a href="/" class="brand-logo center">FinFriend</a> | <%= link_to 'Log In', login_path %> or <%= link_to 'Register', new_user_path %>
-    <% end %>
-  </h5>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/users/show" class="brand-logo">FinFriend</a>
+        <% if current_user %>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <!-- current_user will return true if a user is logged in -->
+            <li><%= link_to("Hello, #{current_user.name}", "/users/show")%></li>
+            <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
+          </ul>
+        <% else %>
+          <!-- not logged in -->
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><%= link_to 'Log In', login_path %> or <%= link_to 'Register', new_user_path %></li>
+          </ul>
+        <% end %>
+    </div>
+  </nav>
   <hr>
 
     <% if notice %>
