@@ -8,7 +8,6 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    byebug
     @user = User.find(current_user.credit_cards.first.id)
     @credit_card = CreditCard.find(current_user.credit_cards.first.id)
     @transaction = Transaction.new(credit_card_id: @credit_card.id, user_id: @user.id, amount: transaction_params[:amount])
