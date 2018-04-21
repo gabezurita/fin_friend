@@ -1,6 +1,10 @@
 # FinFriend
 
-FinFriend is a rails app that allows users to create a credit card account and all the functionality associated with having a credit card.
+This is a demo project where I practice fintech database modeling, following the MVC pattern with Rails, implementing data upkeep automation, unit testing, and using Ruby to perform financial calculations. 
+
+FinFriend is a Rails app that allows users to create a credit card account and all the functionality associated with having a credit card.
+
+This is a work in progress that I'm using to learn - any feedback is welcome!
 
 ### How to install the code locally
 
@@ -11,7 +15,7 @@ FinFriend is a rails app that allows users to create a credit card account and a
 
 ### Functionality:
 
-This app uses a background process gem ([clockwork](https://github.com/Rykian/clockwork)) and a Procfile ([foreman](https://github.com/ddollar/foreman)) to update the interest accrued on a user's card on a daily basis, and to update a user's credit card's balance at end of month. See Procfile, clock.rb, and related models and methods.
+This app uses a background process gem ([clockwork](https://github.com/Rykian/clockwork)) and a Procfile ([foreman](https://github.com/ddollar/foreman)) to update the interest accrued on a user's opening monthly balance at close of business, and to update the card's balance at the end of month. See Procfile, clock.rb, and related models and methods.
 
 `$ gem install foreman`
 
