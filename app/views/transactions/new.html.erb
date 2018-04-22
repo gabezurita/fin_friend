@@ -1,16 +1,18 @@
-<div>
-  <div class="row">
-    <div class="col s12"><h4>Make a payment:</h4></div>
+<div class="card">
+  <div class="card-content">
+    <div class="row">
+      <h4 class="col s12">How much would you like to pay?</h4>
+    </div>
+
+    <%= form_for @transaction do |f| %>
+      <div class="input-field col s12">
+        <%= f.label :amount %>
+        <%= f.number_field :amount, input_html: { min: '0', step: 'any' } %>
+      </div>
+
+      <div class="input-field col s12">
+        <%= render partial: '/submit_button' %>
+      </div>
+    <% end %>
   </div>
-
-  <%= form_for @transaction do |f| %>
-    <div class="input-field col s12">
-      <%= f.label :amount %>
-      <%= f.number_field :amount, input_html: { min: '0', step: 'any' } %>
-    </div>
-
-    <div class="input-field col s12">
-      <%= render partial: '/submit_button' %>
-    </div>
-  <% end %>
 </div>
