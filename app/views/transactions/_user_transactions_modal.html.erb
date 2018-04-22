@@ -1,0 +1,26 @@
+<a class="waves-effect waves-light btn-small modal-trigger slightly-enlarge-text" href="#modal2">Make a payment</a>
+  <!-- Modal Structure -->
+  <div id="modal2" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <p>
+        How much would you like to pay?
+      </p>
+      <div class="row">
+        <h4 class="col s12">How much would you like to pay?</h4>
+      </div>
+
+      <%= form_for @transaction do |f| %>
+        <div class="input-field col s12">
+          <%= f.label :amount %>
+          <%= f.number_field :amount, input_html: { min: '0', step: 'any' } %>
+        </div>
+
+        <div class="input-field col s12">
+          <%= render partial: '/submit_button' %>
+        </div>
+      <% end %>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Back to Sign-up</a>
+    </div>
+  </div>
