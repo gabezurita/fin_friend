@@ -10,7 +10,7 @@
       <span class="card-title white-text"><i class="small material-icons">credit_card</i> Credit Cards</span>
 
       <div class="card-panel">
-        <div><%= "#{@user.credit_cards.first.name} Credit Card" %></div>
+        <div class="card-title"><%= "#{@user.credit_cards.first.name} Credit Card" %></div>
         <div>Current Balance:</div>
         <div class="card-title"><%="$ #{@user.credit_cards.first.transaction_balance}" %></div>
 
