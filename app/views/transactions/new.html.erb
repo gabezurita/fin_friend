@@ -7,7 +7,7 @@
     <%= form_for @transaction do |f| %>
       <div class="input-field col s12">
         <%= f.label :amount %>
-        <%= f.number_field :amount, input_html: { min: '0', step: 'any' } %>
+        <%= f.number_field(:amount, options = { min: '0', step: 'any' }) %>
       </div>
 
       <div class="input-field col s12">
