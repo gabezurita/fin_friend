@@ -1,4 +1,6 @@
 class TransactionsController < ApplicationController
+  include TransactionsHelper
+
   def new
     @transaction = Transaction.new
   end
@@ -10,7 +12,8 @@ class TransactionsController < ApplicationController
   def create
     @user = User.find(current_user.credit_cards.first.id)
     @credit_card = CreditCard.find(current_user.credit_cards.first.id)
-    @transaction = Transaction.new(credit_card_id: @credit_card.id, user_id: @user.id, amount: transaction_params[:amount])
+    @payment = convert_to_debit(transaction_params[:amount])
+    @transaction = Transaction.new(credit_card_id: @credit_card.id, user_id: @user.id, amount: @payment)
 
     if @transaction.save
       # If user saves in the db successfully:

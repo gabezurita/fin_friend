@@ -9,13 +9,13 @@
   	<div class="row">
       <div class="input-field col s12">
         <%= f.label :email %>
-        <%= f.text_field :email, autofocus: true %>
+        <%= f.text_field :email, autofocus: true, :required => true %>
       </div>
     </div>
 		<div class="row">
       <div class="input-field col s12">
         <%= f.label :password %>
-        <%= f.password_field :password %>
+        <%= f.password_field :password, :required => true %>
       </div>
     </div>
     <div class="input-field col s12">
