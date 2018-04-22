@@ -11,7 +11,8 @@
         <h4 class="col s12 user-button"><%= "#{@user.credit_cards.first.name} Credit Card" %></h4>
         <row><h4 class="col s12 user-button">Balance:</h4></row>
         <row><h4 class="col s12 user-button"><%="$ #{@user.credit_cards.first.transaction_balance}" %></h4></row>
-          <a href="/transactions/new" class="waves-effect waves-light btn-small"><i class="material-icons left">attach_money</i>Make a payment</a>
+
+        <a href="/transactions/new" class="btn waves-effect waves-light"><i class="material-icons left">attach_money</i>Make a payment</a>
     </div>
   </div>
 </div>
