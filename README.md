@@ -6,6 +6,8 @@ FinFriend is a Rails app that allows users to create a credit card account and a
 
 This is a work in progress that I'm using to learn - any feedback is welcome!
 
+The app is ([live on Heroku (click here)](https://finfriend.herokuapp.com/).
+
 ### How to install the code locally
 
 1. Clone the repository.
