@@ -58,6 +58,6 @@ body {
   font-size: 150% !important;
 }
 
-.move-right {
-  left: 1em !important;
+.large-text {
+  font-size: 5em !important;
 }

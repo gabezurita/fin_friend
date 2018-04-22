@@ -4,15 +4,15 @@
 
       <span class="card-title white-text"><i class="small material-icons">person_pin_circle</i>Profile Info</span>
       <div class="card-panel">
-        <div class="row"><span><%= "Name: #{@user.name}"%></span></div>
-        <div class="row"><span><%= "Email: #{@user.email}" %></span></div>
+        <div class="card-title"><span><%= "Name: #{@user.name}"%></span></div>
+        <div class="card-title"><span><%= "Email: #{@user.email}" %></span></div>
       </div>
       <span class="card-title white-text"><i class="small material-icons">credit_card</i> Credit Cards</span>
 
       <div class="card-panel">
-        <div class="row s12"><%= "#{@user.credit_cards.first.name} Credit Card" %></div>
-        <div class="row s12">Balance:</div>
-        <div class="row s12"><%="$ #{@user.credit_cards.first.transaction_balance}" %></div>
+        <div><%= "#{@user.credit_cards.first.name} Credit Card" %></div>
+        <div>Current Balance:</div>
+        <div class="card-title"><%="$ #{@user.credit_cards.first.transaction_balance}" %></div>
 
         <div class="card-action">
           <a href="/transactions/new" class="btn waves-effect waves-light"><i class="material-icons left">attach_money</i>Make a payment</a>
