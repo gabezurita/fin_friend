@@ -2,12 +2,12 @@
   <div class="card blue-grey darken-1">
     <div class="card-content white-text">
         <span class="card-title"><i class="small material-icons">person_pin_circle</i>Profile Info</span>
-        <hr class="user-page-hr">
+        <hr>
         <h4><span class="category-title"><%= "Name: #{@user.name}"%></span></h4>
         <h4><span class="category-title"><%= "Email: #{@user.email}" %></span></h4>
-        <hr class="user-page-hr">
+        <hr>
         <span class="card-title"><i class="small material-icons">credit_card</i> Credit Cards</span>
-        <hr class="user-page-hr">
+        <hr>
         <h4 class="col s12 user-button"><%= "#{@user.credit_cards.first.name} Credit Card" %></h4>
         <row><h4 class="col s12 user-button">Balance:</h4></row>
         <row><h4 class="col s12 user-button"><%="$ #{@user.credit_cards.first.transaction_balance}" %></h4></row>
