@@ -31,7 +31,7 @@
   </head>
 
 <body class="container">
-  <nav>
+  <nav class="container">
     <div class="nav-wrapper">
         <% if current_user %>
         <a href="/users/show" class="brand-logo left"> <i class="material-icons">card_membership</i>FinFriend</a>
@@ -50,7 +50,7 @@
         <% end %>
     </div>
   </nav>
-
+  <div class="container">
     <% if notice %>
       <%= notice %>
   	<% end %>
@@ -59,6 +59,7 @@
       <%= alert %>
   	<% end %>
     <%= yield %>
+  </div>
   <!--JavaScript at end of body for optimized loading-->
   <script type="text/javascript" src="js/materialize.min.js"></script>
   </body>
