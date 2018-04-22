@@ -55,5 +55,9 @@ body {
 }
 
 .enlarge-text {
-  font-size: 150%;
+  font-size: 150% !important;
+}
+
+.move-right {
+  left: 1em !important;
 }
