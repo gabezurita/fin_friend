@@ -1,18 +1,23 @@
-<div class="user-info container">
+<div class="user-info">
   <div class="card blue-grey darken-1">
-    <div class="card-content white-text">
-        <span class="card-title"><i class="small material-icons">person_pin_circle</i>Profile Info</span>
-        <hr>
-        <h4><span><%= "Name: #{@user.name}"%></span></h4>
-        <h4><span><%= "Email: #{@user.email}" %></span></h4>
-        <hr>
-        <span class="card-title"><i class="small material-icons">credit_card</i> Credit Cards</span>
-        <hr>
-        <h4 class="col s12"><%= "#{@user.credit_cards.first.name} Credit Card" %></h4>
-        <row><h4 class="col s12">Balance:</h4></row>
-        <row><h4 class="col s12"><%="$ #{@user.credit_cards.first.transaction_balance}" %></h4></row>
+    <div class="card-content">
 
-        <a href="/transactions/new" class="btn waves-effect waves-light"><i class="material-icons left">attach_money</i>Make a payment</a>
+      <span class="card-title white-text"><i class="small material-icons">person_pin_circle</i>Profile Info</span>
+      <div class="card-panel">
+        <div class="card-title"><span><%= "Name: #{@user.name}"%></span></div>
+        <div class="card-title"><span><%= "Email: #{@user.email}" %></span></div>
+      </div>
+      <span class="card-title white-text"><i class="small material-icons">credit_card</i> Credit Cards</span>
+
+      <div class="card-panel">
+        <div><%= "#{@user.credit_cards.first.name} Credit Card" %></div>
+        <div>Current Balance:</div>
+        <div class="card-title"><%="$ #{@user.credit_cards.first.transaction_balance}" %></div>
+
+        <div class="card-action">
+          <a href="/transactions/new" class="btn waves-effect waves-light"><i class="material-icons left">attach_money</i>Make a payment</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
