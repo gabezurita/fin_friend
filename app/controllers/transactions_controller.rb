@@ -1,5 +1,6 @@
 class TransactionsController < ApplicationController
   include TransactionsHelper
+  before_action :authorize
 
   def new
     # @user = User.find(current_user.credit_cards.first.id)
