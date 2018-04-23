@@ -3,16 +3,39 @@
     <div class="row">
       <h4 class="col s12">How much would you like to pay?</h4>
     </div>
+    <div class="row">
+      <div class="card-title"><%= "#{@credit_card.name} Credit Card" %></div>
+      <div>Current Balance:</div>
+      <div class="card-title"><%="$ #{@credit_card.transaction_balance}" %></div>
+    </div>
 
     <%= form_for @transaction do |f| %>
       <div class="input-field col s12">
         <%= f.label :amount %>
-        <%= f.number_field(:amount, options = { min: '0', step: 'any' }) %>
+        <%= f.number_field(:amount, options = { min: '1', step: 'any', :required => true }) %>
       </div>
 
       <div class="input-field col s12">
         <%= render partial: '/submit_button' %>
       </div>
     <% end %>
+    <% if @transactions.present? %>
+      <% @transactions.reverse.each do |transaction| %>
+        <ul>
+          <li>
+            <div class="col s12 m8 offset-m2 l6 offset-l3">
+              <div class="card-panel grey lighten-5 z-depth-1 hoverable ">
+                <div class="col s10">
+                  <span class="card-content">
+                    <span class="bold">DATE:</span> <%= transaction.created_at.strftime("%B %e, %Y at %I:%M %p") %> | <span class="bold">AMOUNT:</span> <%= transaction.amount %>
+                  </span>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <% end %>
+        <% else %>
+          <div class="card-title">You have no past purchases</div>
+        <% end %>
   </div>
 </div>
