@@ -61,3 +61,7 @@ body {
 .large-text {
   font-size: 5em !important;
 }
+
+.bold {
+  font-weight: bold;
+}
