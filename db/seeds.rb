@@ -8,7 +8,7 @@
 
 User.create!(name: 'gabo', email: 'gabo@gmail.com', password: 'password', password_confirmation: 'password')
 
-CreditCard.create!(name: "FinFriend", description: "With 3 percent cash back on all purchases, this is the best single credit card there is!", card_number: '5105105105105100', )
+CreditCard.create!(name: "FinFriend", description: "With 3 percent cash back on all purchases, this is the best single credit card there is!", card_number: '5105105105105100')
 
 UserCreditCard.create!(credit_card_id: 1, user_id: 1)
 
