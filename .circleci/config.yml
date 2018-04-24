@@ -8,7 +8,7 @@ jobs:
     docker:
       # specify the version you desire here
        - image: circleci/ruby:2.3.1
-          environment: 
+          environment:
             RAILS_ENV: test
             PGHOST: 127.0.0.1
             DATABASE_URL: postgres://fin_friend-user@127.0.0.1/fin_friend-test
@@ -44,10 +44,6 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
-      # Database setup
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
-
       - run:
           name: Waiting for PostgreSQL to start
           command: |
@@ -58,6 +54,10 @@ jobs:
               sleep 2
             done
             echo Failed waiting for Postgres && exit 1
+
+      # Database setup
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:schema:load
 
       # run tests!
       - run:
