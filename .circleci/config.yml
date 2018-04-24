@@ -60,8 +60,13 @@ jobs:
           path: /tmp/test-results
           destination: test-results
 
-deployment:
-  prod:
-    branch: master
-    heroku:
-      appname: finfriend
+        deployment:
+          prod:
+            branch: master
+            heroku:
+              appname: finfriend
+
+      - image: circleci/postgres:9.6.2-alpine
+        environment:
+          POSTGRES_USER: root
+          POSTGRES_DB: circle-test_test
