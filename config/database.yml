@@ -80,6 +80,15 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
   database: fin_friend_production
+  pool: 5
+  username: fin_friend
+  password: <%= ENV['FIN_FRIEND_DATABASE_PASSWORD'] %>
+
+development:
+  adapter: postgresql
+  database: fin_friend_development
+  pool: 5   
   username: fin_friend
   password: <%= ENV['FIN_FRIEND_DATABASE_PASSWORD'] %>
