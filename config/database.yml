@@ -89,6 +89,16 @@ production:
 development:
   adapter: postgresql
   database: fin_friend_development
-  pool: 5   
+  pool: 5
   username: fin_friend
   password: <%= ENV['FIN_FRIEND_DATABASE_PASSWORD'] %>
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: fin_friend-test
+  pool: 5
+  username: fin_friend-user
+  password: password
+  host: localhost
+  port: 3000
