@@ -21,7 +21,6 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
 
 development:
-  <<: *default
   adapter: postgresql
   database: fin_friend_development
   username: fin_friend_user
@@ -89,7 +88,6 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
   adapter: postgresql
   database: fin_friend_production
   username: fin_friend_user
