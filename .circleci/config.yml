@@ -10,8 +10,8 @@ jobs:
        - image: circleci/ruby:2.3.1
           environment:
             RAILS_ENV: test
-            PGHOST: 127.0.0.1
-            DATABASE_URL: postgres://fin_friend-user@127.0.0.1/fin_friend-test
+            PGHOST: localhost:3000
+            DATABASE_URL: postgres://fin_friend_user@127.0.0.1/fin_friend-test
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
