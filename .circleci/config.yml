@@ -18,66 +18,59 @@ jobs:
             POSTGRES_DB: fin_friend_test
             POSTGRES_USER: fin_friend_user
             POSTGRES_PASSWORD: password
+        deployment:
+          prod:
+            branch: master
+            heroku:
+              appname: finfriend
+
 
     working_directory: ~/fin_friend
 
     steps:
       - checkout
 
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "Gemfile.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+      - type: cache-restore
+        name: Restore bundle cache
+        key: myapp-bundle-{{ checksum "Gemfile.lock" }}
+
+      - type: cache-restore
+        name: Restore yarn cache
+        key: myapp-yarn-{{ checksum "yarn.lock" }}
 
       - run:
-          name: install dependencies
-          command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
-
-      - save_cache:
-          paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+          name: Bundle Install
+          command: bin/bundle install --path vendor/bundle
 
       - run:
-          name: Waiting for PostgreSQL to start
-          command: |
-            for i in `seq 1 10`;
-            do
-              nc -z localhost 3000 && echo Success && exit 0
-              echo -n .
-              sleep 2
-            done
-            echo Failed waiting for Postgres && exit 1
+          name: Yarn Install
+          command: yarn install
 
-      # Database setup
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
+      - type: cache-save
+        name: Store bundle cache
+        key: myapp-bundle-{{ checksum "Gemfile.lock" }}
+        paths:
+          - vendor/bundle
 
-      # run tests!
+      - type: cache-save
+        name: Store yarn cache
+        key: myapp-yarn-{{ checksum "yarn.lock" }}
+        paths:
+          - ~/.yarn-cache
+
       - run:
-          name: run tests
-          command: |
-            mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
+          name: Rubocop
+          command: bin/rubocop --rails
 
-            bundle exec rspec --format progress \
-                            --format RspecJunitFormatter \
-                            --out /tmp/test-results/rspec.xml \
-                            --format progress \
-                            $TEST_FILES
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
-      # collect reports
-      - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
+      - run:
+          name: Database setup
+          command: bin/rails db:schema:load --trace
+
+      - run:
+          name: Run tests
+          command: bin/rails test
           destination: test-results
-
-        deployment:
-          prod:
-            branch: master
-            heroku:
-              appname: finfriend
