@@ -21,6 +21,7 @@ RSpec.describe CreditCard, type: :model do
 
     travel_to Time.zone.local(2018, 4, 31) do
       CreditCard.first.monthly_balance_update!
+      byebug
       expect(CreditCard.first.transaction_balance).to eq 514.38
     end
   end
