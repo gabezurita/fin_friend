@@ -1,6 +1,6 @@
 example_id                             | status | run_time        |
 -------------------------------------- | ------ | --------------- |
-./spec/models/credit_card_spec.rb[1:1] | passed | 0.29716 seconds |
-./spec/models/credit_card_spec.rb[1:2] | passed | 0.62646 seconds |
-./spec/models/credit_card_spec.rb[2:1] | passed | 0.08412 seconds |
-./spec/models/credit_card_spec.rb[2:2] | passed | 0.68184 seconds |
+./spec/models/credit_card_spec.rb[1:1] | passed | 0.14968 seconds |
+./spec/models/credit_card_spec.rb[1:2] | passed | 0.51944 seconds |
+./spec/models/credit_card_spec.rb[2:1] | passed | 0.10853 seconds |
+./spec/models/credit_card_spec.rb[2:2] | passed | 0.71119 seconds |
