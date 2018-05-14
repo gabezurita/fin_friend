@@ -60,8 +60,21 @@ jobs:
           path: /tmp/test-results
           destination: test-results
 
-deployment:
-  production:
-    branch: master
-    heroku:
-      appname: finfriend
+  deploy:
+    machine:
+      enabled: true
+    working_directory: ~/fin_friend
+    environment:
+      HEROKU_APP: "finfriend"
+    steps:
+      - checkout
+      - run:
+          name: Setup Heroku
+          command: bash .circleci/setup-heroku.sh
+
+      - run:
+          command: |
+            git push heroku sequential-branch-filter:master
+            heroku run rake db:migrate
+            sleep 5  # sleep for 5 seconds to wait for dynos
+            heroku restart
