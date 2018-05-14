@@ -15,6 +15,19 @@ The app is [live on Heroku (click here)](https://finfriend.herokuapp.com/).
 3. Set up the database: `bundle exec rake db:setup`
 4. Start the application: `bundle exec rails server`
 
+### Finfriend cards function as follows:
+- Each card has an APR and Credit Limit.
+- Interest is calculated daily at the close of each day, but not applied.
+- Interest is applied to the balance at the close of each month (opening day excluded). 
+  
+### FinFriend is able to:
+- Create an account (e.g. opening a new credit card)
+- Keep track of charges 
+- Keep track of payments
+- Provide the outstanding balance for any given day (such as "10 days after account opening")
+
+## Configuration details:
+
 ### Functionality:
 
 This app uses a background process gem ([clockwork](https://github.com/Rykian/clockwork)) and a Procfile ([foreman](https://github.com/ddollar/foreman)) to update the interest accrued on a user's opening monthly balance at close of business, and to update the card's balance at the end of month. See Procfile, clock.rb, and related models and methods.
@@ -23,13 +36,7 @@ This app uses a background process gem ([clockwork](https://github.com/Rykian/cl
 
 `$ foreman start`
 
-#### Finfriend cards function as follows:
-- Each card has an APR and Credit Limit.
-- Interest is calculated daily at the close of each day, but not applied.
-- Interest is applied to the balance at the close of each month (opening day excluded). 
-  
-#### FinFriend is able to:
-- Create an account (e.g. opening a new credit card)
-- Keep track of charges 
-- Keep track of payments
-- Provide the outstanding balance for any given day (such as "10 days after account opening")
+### CI
+
+The app has ([circle-ci configured](https://github.com/gabezurita/fin_friend/pull/49)), automatically testing all deploys with the app's rspec suite prior to merging to master and being deployed to Heroku--see screenshot:
+![image](https://user-images.githubusercontent.com/17016449/39976251-bb054edc-5700-11e8-8a1d-027d86a53982.png)
