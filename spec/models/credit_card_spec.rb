@@ -19,7 +19,9 @@ RSpec.describe CreditCard, type: :model do
       CreditCard.first.accumulate_daily_accrued_interest
     end
 
-    travel_to Time.zone.local(2018, 4, 31) do
+    end_date ||= Time.new(2018, 4, 30)
+
+    travel_to end_date do
       CreditCard.first.monthly_balance_update!
       expect(CreditCard.first.transaction_balance).to eq 514.38
     end
@@ -57,7 +59,9 @@ RSpec.describe CreditCard, type: :model do
       CreditCard.first.accumulate_daily_accrued_interest
     end
 
-    travel_to Time.zone.local(2018, 4, 31) do
+    end_date ||= Time.new(2018, 4, 30)
+
+    travel_to end_date do
       CreditCard.first.monthly_balance_update!
       expect(CreditCard.first.transaction_balance).to eq 411.99
     end
